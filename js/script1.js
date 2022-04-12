@@ -1,21 +1,37 @@
 "use strict";
 
-const number0Films =+prompt ('Рассказывай давай,сколько отмотала часов за телеком?','');
+const numberOfFilms = +prompt('Сколько фильмов мы посмотрели за год?', '');
 
 const personalMovieDB = {
-                    count: number0Films,
-                    movies: {},
-                    actors: {},
-                    genres: [],
-                    privat: false
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false
 };
 
-const a = prompt ('Че палила последнее?',''),
-      b = prompt ('Как тебе по 10-бальной?',''),
-      c = prompt ('Че палила последнее?',''),
-      d = prompt ('Как тебе по 10-бальной?','');
-
- personalMovieDB.movies[a] = b;
- personalMovieDB.movies[c] = d;
-
+ for (let i = 0; i < 2; i++) {
+    const a = prompt ('Что последнее смотрели?',''),
+    b = prompt ('И на сколько фильм вытянул с 1 до 10?','');
+    personalMovieDB.movies[a] = b;
+    
+    if (a != null && b != null && a !='' && b != '' && a.length < 50){
+        personalMovieDB.movies[a] = b;
+        console.log ('done');
+    } else {
+        console.log ('error');
+        i--;
+    }
+ }
+ if (personalMovieDB.count < 10) {
+     console.log ("Да ладна! Быть не может,не верю)");
+ } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+     console.log ("Какие то  мы скучные");
+ } else if (personalMovieDB.count >= 30) {
+     console.log ("Во!!! Это по нашему!");
+    }
+     else {
+         console.log ("Уупс!.. Что-то пошло не так!");
+     }
+ 
 console.log (personalMovieDB);
